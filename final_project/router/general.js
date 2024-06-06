@@ -60,14 +60,14 @@ public_users.get('/author/:author',function (req, res) {
 
 // Get all books based on title
 public_users.get('/title/:title',function (req, res) {
-  const get_books = new Promise((resolve, reject) => {
+  const get_books_by_title = new Promise((resolve, reject) => {
     let filteredbooks={};
     for (let [key, value] of Object.entries(books)) {
         if(value.title===req.params.title)
             filteredbooks[key]=value
     }
     resolve(res.status(200).send(JSON.stringify(filteredbooks,null,4)), null, 4)})
-  get_books.then(() => console.log("Promise for Task 13 resolved"));
+  get_books_by_title.then(() => console.log("Promise for Task 13 resolved"));
 });
 
 //  Get book review
